@@ -14,11 +14,10 @@ def randompassword():
         text.insert('end', ''.join(random.choice(chars) for x in range(number.get())))
         text.insert('end','\n')
 
-
 root = Tk()
-root.title('Password Gen')
+root.title('Password Reactor')
 
-root.minsize(250, 150)
+root.minsize(280, 190)
 root.maxsize(350, 250)
 
 frame = ttk.Frame(root)
@@ -29,19 +28,22 @@ frame.pack()
 label = ttk.LabelFrame(frame, height = 100, width = 200, text = '...Click Create!')
 label.config(relief = RIDGE, padding = (20, 15))
 label.pack()
-res_screen = ttk
 
 text = Text(label, height=5, width = 20)
 text.pack()
 
-button = ttk.Button(root, text ='Create Password', command=callback)
+footer = ttk.Frame(root)
+footer.pack()
 
 number = IntVar()
 number.set(8)
-combo = ttk.Combobox(root, textvariable = number)
+combo = ttk.Combobox(footer, textvariable = number)
 combo.config(values = (8,10,16))
-combo.config(background="grey")
-combo.pack()
-button.pack()
+combo.config(width = 4)
+comlabel = ttk.Label(footer, text = 'Number of digits: ')
+comlabel.grid(column = 0, row = 1, sticky="e")
+combo.grid(column = 1, row = 1, sticky="w")
+button = ttk.Button(footer, text ='Create Passwords', command = callback)
+button.grid(column = 0, row = 2, columnspan = 2)
 
 root.mainloop()
