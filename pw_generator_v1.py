@@ -1,3 +1,4 @@
+#PW Generator v1.2
 from tkinter import *
 from tkinter import ttk
 import string
@@ -36,13 +37,15 @@ footer = ttk.Frame(root)
 footer.pack()
 
 number = IntVar()
-number.set(8)
-combo = ttk.Combobox(footer, textvariable = number)
-combo.config(values = (8,10,16))
-combo.config(width = 4)
+number.set(10)
+
+combo = ttk.Combobox(footer, width = 4, textvariable = number)
+combo.config(values = (8,10,16,18))
+
 comlabel = ttk.Label(footer, text = 'Number of digits: ')
 comlabel.grid(column = 0, row = 1, sticky="e")
 combo.grid(column = 1, row = 1, sticky="w")
+
 button = ttk.Button(footer, text ='Create Passwords', command = callback)
 button.grid(column = 0, row = 2, columnspan = 2)
 
