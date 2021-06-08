@@ -1,2 +1,3 @@
-PW Generator
-Python GUI App for safe passord generation
+#PW Generator:
+
+A simple python GUI App for safe passord generation!
